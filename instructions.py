@@ -22,11 +22,15 @@ XRL_A_Rn_table = {
 
 def LJMP_addr16_table(address):
     hex_address = hex(address)
-    return '02 ' + str(hex_address) + '\n'
+    hex_address = hex_address[2:]
+    return '02 ' + str(hex_address[:2]) + " " + str(hex_address[2:]) + '\n'
 
 def DJNZ_direct_offset(direct, current_address, function_address):
-    offset_dec = function_address - current_address - 2
+    
+    offset_dec = function_address - current_address - 3
+    
     offset = tohex(offset_dec, 8)[2:]
+    offset = str(offset).zfill(2)
     offset = offset.upper()
 
     if direct == 'P0':
