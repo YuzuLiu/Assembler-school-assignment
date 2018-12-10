@@ -22,6 +22,7 @@ XRL_A_Rn_table = {
 
 def LJMP_addr16_table(address):
     hex_address = hex(address)
+    hex_address = hex_address.upper()
     hex_address = hex_address[2:]
     return '02 ' + str(hex_address[:2]) + " " + str(hex_address[2:]) + '\n'
 

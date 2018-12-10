@@ -1,3 +1,5 @@
+#run the assembly code first, and store every function and its address in a dictionary
+
 from code_to_address import instruct_address_dict
 
 def run_file(content):
@@ -27,7 +29,6 @@ def run_file(content):
 
         elif 'DJNZ' in line and 'R' not in line:
             current_address += 3
-
 
         elif 'MOV' in line and '#' in line and 'H' in line:
             current_address += 2
